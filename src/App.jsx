@@ -1,14 +1,19 @@
 import './App.css'
-import Home from './components/Home';
-import Navbar from './components/Navbar';
+import Home from './components/Home'
+import MyList from './components/MyList'
+import Navbar from './components/Navbar'
+import { MyListProvider } from './components/ProductListContext'
 
 function App() {
   return (
     <>
-      <Navbar/>
-      <Home />
+      <Navbar />
+      <MyListProvider>
+        <Home />
+        <MyList />
+      </MyListProvider>
     </>
   )
 }
 
-export default App;
+export default App
