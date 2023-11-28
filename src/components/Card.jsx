@@ -3,6 +3,7 @@ import { useMyList } from './ProductListContext'
 const Card = ({ id, title, price, description, category, image, rating }) => {
   const { addToMyList } = useMyList()
 
+  // onCick Funktion für den Button, fügt den aktuellen Card zur MyList hinzu
   const handleAddToMyList = () => {
     const item = { id, title, price, description, category, image, rating }
     addToMyList(item)

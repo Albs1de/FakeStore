@@ -1,16 +1,19 @@
-// import {Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = () => {
   return (
     <nav className="bg-gray-800 text-white p-4 flex justify-between ">
-     <ul className="flex">
-      <li className="ml-4 hover:text-gray-300">Home</li>
-      <li className="ml-4 hover:text-gray-300">MyList</li>
-      <li className="ml-4 hover:text-gray-300">Shopping cart</li>
-     </ul>
-
+      <ul className="flex">
+        <li className="ml-4 hover:text-gray-300">
+          <Link to="/">Home</Link>
+        </li>
+        <li className="ml-4 hover:text-gray-300">
+          <Link to="/mylist">MyList</Link>
+        </li>
+        <li className="ml-4 hover:text-gray-300">Shopping cart</li>
+      </ul>
     </nav>
   )
 }
 
-export default Navbar;
+export default Navbar
