@@ -6,10 +6,10 @@ const MyList = () => {
   return (
     <div>
       {myList.map((item) => (
-        <div key={item.id}>
+        <div key={item.id} className="flex">
           <Card {...item} />
           <button
-            className="bg-black text-white"
+            className="bg-white text-black"
             onClick={() => deleteFromMyList(item)}
           >
             Delete

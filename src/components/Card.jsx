@@ -1,13 +1,14 @@
 import { useMyList } from './ProductListContext'
 
 const Card = ({ id, title, price, description, category, image, rating }) => {
-  const { addToMyList } = useMyList()
+  const { addToMyList, myList } = useMyList()
 
   // onCick Funktion für den Button, fügt den aktuellen Card zur MyList hinzu
   const handleAddToMyList = () => {
     const item = { id, title, price, description, category, image, rating }
     addToMyList(item)
   }
+  const isItemInMyList = myList.some((item) => item.id === id)
   return (
     <div
       id={id}
@@ -24,12 +25,15 @@ const Card = ({ id, title, price, description, category, image, rating }) => {
       </button>
 
       {/* FIXME! Icon einsetzen anstatt Text einfügen! */}
-      <button
-        className="bg-teal-900 text-white font-bold py-2 px-4 rounded m-4"
-        onClick={handleAddToMyList}
-      >
-        Add to Mylist
-      </button>
+      {!isItemInMyList && (
+        <button
+          className="bg-teal-900 text-white font-bold py-2 px-4 rounded m-4"
+          onClick={handleAddToMyList}
+          disabled={isItemInMyList}
+        >
+          Add to Mylist
+        </button>
+      )}
     </div>
   )
 }
