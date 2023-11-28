@@ -14,8 +14,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/mylist" element={<MyList />} />
         </Routes>
-        <Home />
-        <MyList />
       </MyListProvider>
     </Router>
   )
