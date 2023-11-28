@@ -13,9 +13,13 @@ export const MyListProvider = ({ children }) => {
       setMyList((prevList) => [...prevList, product])
     }
   }
+  // Funktion um Produkt aus der Liste zu entfernen
+  const deleteFromMyList = (product) => {
+    setMyList((prevList) => prevList.filter((item) => item.id !== product.id))
+  }
 
   return (
-    <MyListContext.Provider value={{ myList, addToMyList }}>
+    <MyListContext.Provider value={{ myList, addToMyList, deleteFromMyList }}>
       {children}
     </MyListContext.Provider>
   )
