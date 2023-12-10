@@ -1,8 +1,8 @@
 import { useMyList } from './ProductListContext'
-
+import { useCart } from './shoppingcardcontext/ShoppingCardContext'
 const Card = ({ id, title, price, description, category, image, rating }) => {
   const { addToMyList, myList } = useMyList()
-
+  const { addToCart } = useCart()
   // onCick Funktion für den Button, fügt den aktuellen Card zur MyList hinzu
   const handleAddToMyList = () => {
     const item = { id, title, price, description, category, image, rating }
@@ -20,7 +20,12 @@ const Card = ({ id, title, price, description, category, image, rating }) => {
       <p>Category: {category}</p>
       <p>{description}</p>
       <p>Rating : {rating.rate}</p>
-      <button className="bg-blue-700 text-white font-bold hover:bg-white hover:text-blue-700 hover:border py-2 px-4 rounded m-4">
+      <button
+        className="bg-blue-700 text-white font-bold hover:bg-white hover:text-blue-700 hover:border py-2 px-4 rounded m-4"
+        onClick={() =>
+          addToCart({ id, title, description, category, price, image })
+        }
+      >
         Buy
       </button>
 

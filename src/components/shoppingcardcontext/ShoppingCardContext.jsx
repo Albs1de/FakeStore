@@ -9,6 +9,9 @@ export const CartProvider = ({ children }) => {
 
   //Fügt Produkte zum Warenkorb hinzu
   const addToCart = (product) => {
+    {
+      /*TODO Bedingung hinzufügen */
+    }
     setCartList((prevList) => [...prevList, product])
   }
 
