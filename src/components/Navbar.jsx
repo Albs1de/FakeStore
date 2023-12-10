@@ -19,15 +19,20 @@ const Navbar = () => {
         <li className="ml-4 hover:text-gray-300">
           <Link to="/mylist">MyList</Link>
         </li>
-        <li className="ml-4 hover:text-gray-300" onClick={toggleCart}>
+        <li className="ml-8 hover:text-gray-300 " onClick={toggleCart}>
           Shopping Cart
           {isCartOpen && (
-            <div className=" bg-white rounded-md">
+            <div className=" bg-white text-black rounded-md absolute right-0 w-full">
+              {/*TODO wenn gleiches Element, dann nur 1x anzeigen und Anzahl aufzählen */}
               {cartList.length > 0 ? (
                 cartList.map((item) => (
-                  <div key={item.id} className="flex items-center px-4 py-2">
+                  <div
+                    key={item.id}
+                    className=" flex items-center px-4 py-2 m-2"
+                  >
                     <img src={item.image} alt={item.title} className="w-10" />
-                    {item.name}
+                    <p className="ml-4 text-sm">{item.title}</p>
+                    <p className="ml-24 font-bold">{item.price}€</p>
                   </div>
                 ))
               ) : (
