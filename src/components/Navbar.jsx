@@ -4,7 +4,7 @@ import { useCart } from './shoppingcardcontext/ShoppingCardContext'
 
 const Navbar = () => {
   const [isCartOpen, setIsCartOpen] = useState(false)
-  const { cartList } = useCart()
+  const { cartList, totalPrice } = useCart()
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen)
@@ -41,6 +41,9 @@ const Navbar = () => {
                   Dein Warenkorb ist leer.
                 </div>
               )}
+              <div className="bg-black text-white">
+                <p>Gesamtpreis: {totalPrice}</p>
+              </div>
             </div>
           )}
         </li>

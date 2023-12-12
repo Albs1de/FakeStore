@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
 
 //Context erstellen
 const CartContext = createContext()
@@ -6,6 +6,7 @@ const CartContext = createContext()
 //Provider
 export const CartProvider = ({ children }) => {
   const [cartList, setCartList] = useState([])
+  const [totalPrice, setTotalPrice] = useState(0)
 
   //Fügt Produkte zum Warenkorb hinzu
   const addToCart = (product) => {
@@ -34,10 +35,17 @@ export const CartProvider = ({ children }) => {
     const newCartList = cartList.filter((element) => element.id !== product.id)
     setCartList(newCartList)
   }
+  // Aktualisiert den Gesamtbetrag in totalprice abhängig von cartList
+  useEffect(() => {
+    const newTotalPrice = cartList.reduce((sum, item) => sum + item.price, 0)
+    setTotalPrice(newTotalPrice)
+  }, [cartList])
 
   // Context-Werte bereitstellen
   return (
-    <CartContext.Provider value={{ cartList, addToCart, deleteFromCart }}>
+    <CartContext.Provider
+      value={{ cartList, addToCart, deleteFromCart, totalPrice, setTotalPrice }}
+    >
       {children}
     </CartContext.Provider>
   )
