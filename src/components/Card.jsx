@@ -12,27 +12,38 @@ const Card = ({ id, title, price, description, category, image, rating }) => {
   return (
     <div
       id={id}
-      className="card-container bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 m-4"
+      className="card-container bg-slate-100 shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 m-4 px-4"
     >
       <img src={image} alt={title} className="w-32 h-32" />
-      <h3 className="text-lg font-bold text-blue px-4 pt-4">{title}</h3>
-      <p>Preis: {price}€</p>
-      <p>Kategorie: {category}</p>
-      <p>{description}</p>
-      <p>Rating : {rating.rate}</p>
+      <h3 className="text-lg font-bold text-xl text-slate-950 leading-8 pt-3 pb-2 ">
+        {title}
+      </h3>
+      <p className="text-slate-900 text-base leading-7 pb-1 ">
+        <span className="font-bold">Kategorie: </span>
+        <span className="text-slate-600 leading-5">{category}</span>
+      </p>
+      <p className="text-slate-900 text-base leading-6 pb-1 ">
+        <span className="text-slate-600 ">{description}</span>
+      </p>
+      <p className="text-slate-900 text-base leading-7 pb-2 ">
+        <span className="font-bold">Rating:</span> <span>{rating.rate}</span>
+      </p>
+      <p className="text-slate-900 text-lg leading-7 pb-2 ">
+        <span className="font-bold">Preis:</span>{' '}
+        <span className="text-tradewind font-bold">{price}€</span>
+      </p>
       <button
-        className="bg-blue-700 text-white font-bold hover:bg-white hover:text-blue-700 hover:border py-2 px-4 rounded m-4"
+        className="bg-slate-500 hover:bg-slate-600 text-slate-50 focus:bg-slate-700 py-2  rounded  px-2 mb-5"
         onClick={() =>
           addToCart({ id, title, description, category, price, image })
         }
       >
         Kaufen
       </button>
-
       {/* FIXME! Icon einsetzen anstatt Text einfügen! */}
       {!isItemInMyList && (
         <button
-          className="bg-teal-900 text-white font-bold py-2 px-4 rounded m-4"
+          className="bg-teal-900 text-white  py-2 px-4 rounded m-5"
           onClick={handleAddToMyList}
           disabled={isItemInMyList}
         >

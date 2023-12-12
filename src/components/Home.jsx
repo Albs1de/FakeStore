@@ -43,9 +43,10 @@ const Home = () => {
   }
 
   return (
-    <div className="">
-      <select onChange={handleSortChange}>
+    <div className="bg-slate-50">
+      <select defaultValue="defaultSort" onChange={handleSortChange}>
         {/*Icons für jede Sortierart einfügen und visuell ansprechender machen */}
+        <option value="defaultSort">Sortieren nach...</option>
         <option value="preisAbs">Preis: Absteigend</option>
         <option value="preisAuf">Preis: Aufsteigend</option>
         <option value="alphabetischAbs">Alphabetisch: Absteigend</option>

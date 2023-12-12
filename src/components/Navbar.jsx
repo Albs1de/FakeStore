@@ -11,16 +11,19 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="bg-gray-800 text-white p-4 flex justify-between ">
+    <nav className="bg-slate-700 text-white p-4 flex justify-between ">
       <ul className="flex">
-        <li className="ml-4 hover:text-gray-300">
+        <li className="ml-4 text-slate-50 hover:text-slate-400">
           <Link to="/">Home</Link>
         </li>
-        <li className="ml-4 hover:text-gray-300">
+        <li className="ml-4 text-slate-50 hover:text-gray-300">
           <Link to="/mylist">MyList</Link>
         </li>
         {/*TODO! Kleinen Counter einfügen, der die Anzahl der Elemente anzeigt und Icon für Warenkorb*/}
-        <li className="ml-8 hover:text-gray-300 " onClick={toggleCart}>
+        <li
+          className="ml-8 text-slate-50 hover:text-gray-300 "
+          onClick={toggleCart}
+        >
           Shopping Cart
           {isCartOpen && (
             <div className=" bg-white text-black rounded-md absolute right-0 w-full">
