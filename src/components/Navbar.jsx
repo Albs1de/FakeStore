@@ -4,7 +4,7 @@ import { useCart } from './shoppingcardcontext/ShoppingCardContext'
 
 const Navbar = () => {
   const [isCartOpen, setIsCartOpen] = useState(false)
-  const { cartList, totalPrice } = useCart()
+  const { cartList, totalPrice, deleteFromCart } = useCart()
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen)
@@ -33,6 +33,13 @@ const Navbar = () => {
                     <img src={item.image} alt={item.title} className="w-10" />
                     <p className="ml-4 text-sm">{item.title}</p>
                     <p className="ml-24 font-bold">{item.price}€</p>
+                    {/*TODO! Icon einfügen zum löschen */}
+                    <button
+                      className="btn "
+                      onClick={() => deleteFromCart(item)}
+                    >
+                      Delete
+                    </button>
                   </div>
                 ))
               ) : (
@@ -42,7 +49,7 @@ const Navbar = () => {
                 </div>
               )}
               <div className="bg-black text-white">
-                <p>Gesamtpreis: {totalPrice}</p>
+                <p>Gesamtpreis: {totalPrice}€</p>
               </div>
             </div>
           )}
