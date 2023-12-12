@@ -16,8 +16,8 @@ const Card = ({ id, title, price, description, category, image, rating }) => {
     >
       <img src={image} alt={title} className="w-32 h-32" />
       <h3 className="text-lg font-bold text-blue px-4 pt-4">{title}</h3>
-      <p>Price: {price}€</p>
-      <p>Category: {category}</p>
+      <p>Preis: {price}€</p>
+      <p>Kategorie: {category}</p>
       <p>{description}</p>
       <p>Rating : {rating.rate}</p>
       <button
@@ -26,7 +26,7 @@ const Card = ({ id, title, price, description, category, image, rating }) => {
           addToCart({ id, title, description, category, price, image })
         }
       >
-        Buy
+        Kaufen
       </button>
 
       {/* FIXME! Icon einsetzen anstatt Text einfügen! */}
@@ -36,7 +36,7 @@ const Card = ({ id, title, price, description, category, image, rating }) => {
           onClick={handleAddToMyList}
           disabled={isItemInMyList}
         >
-          Add to Mylist
+          Zur Liste hinzufügen
         </button>
       )}
     </div>

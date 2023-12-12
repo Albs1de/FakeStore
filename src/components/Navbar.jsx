@@ -19,6 +19,7 @@ const Navbar = () => {
         <li className="ml-4 hover:text-gray-300">
           <Link to="/mylist">MyList</Link>
         </li>
+        {/*TODO! Kleinen Counter einfügen, der die Anzahl der Elemente anzeigt und Icon für Warenkorb*/}
         <li className="ml-8 hover:text-gray-300 " onClick={toggleCart}>
           Shopping Cart
           {isCartOpen && (
