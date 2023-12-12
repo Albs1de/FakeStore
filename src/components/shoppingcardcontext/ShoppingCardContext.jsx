@@ -10,9 +10,6 @@ export const CartProvider = ({ children }) => {
 
   //Fügt Produkte zum Warenkorb hinzu
   const addToCart = (product) => {
-    {
-      /*TODO Bedingung hinzufügen */
-    }
     // if product is in cartList, then dont add it but add the price + price
     const isProductInCart = cartList.find(
       (products) => products.id === product.id
@@ -21,7 +18,10 @@ export const CartProvider = ({ children }) => {
       setCartList((prevList) =>
         prevList.map((item) =>
           item.id === product.id
-            ? { ...item, price: item.price + product.price }
+            ? {
+                ...item,
+                price: parseFloat((item.price + product.price).toFixed(2)),
+              }
             : item
         )
       )
@@ -37,7 +37,10 @@ export const CartProvider = ({ children }) => {
   }
   // Aktualisiert den Gesamtbetrag in totalprice abhängig von cartList
   useEffect(() => {
-    const newTotalPrice = cartList.reduce((sum, item) => sum + item.price, 0)
+    const newTotalPrice = cartList.reduce(
+      (sum, item) => parseFloat((sum + item.price).toFixed(2)),
+      0
+    )
     setTotalPrice(newTotalPrice)
   }, [cartList])
 
