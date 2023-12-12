@@ -12,7 +12,21 @@ export const CartProvider = ({ children }) => {
     {
       /*TODO Bedingung hinzufügen */
     }
-    setCartList((prevList) => [...prevList, product])
+    // if product is in cartList, then dont add it but add the price + price
+    const isProductInCart = cartList.find(
+      (products) => products.id === product.id
+    )
+    if (isProductInCart) {
+      setCartList((prevList) =>
+        prevList.map((item) =>
+          item.id === product.id
+            ? { ...item, price: item.price + product.price }
+            : item
+        )
+      )
+    } else {
+      setCartList((prevList) => [...prevList, product])
+    }
   }
 
   //Löscht Produkt aus dem Warenkorb
