@@ -12,7 +12,7 @@ const Card = ({ id, title, price, description, category, image, rating }) => {
   return (
     <div
       id={id}
-      className="card-container bg-slate-100 shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 m-4 px-4"
+      className="flex flex-col h-full card-container bg-slate-100 shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 m-4 px-4"
     >
       <img src={image} alt={title} className="w-32 h-32" />
       <h3 className="text-lg font-bold text-xl text-slate-950 leading-8 pt-3 pb-2 ">
@@ -32,24 +32,26 @@ const Card = ({ id, title, price, description, category, image, rating }) => {
         <span className="font-bold">Preis:</span>{' '}
         <span className="text-tradewind font-bold">{price}€</span>
       </p>
-      <button
-        className="bg-slate-500 hover:bg-slate-600 text-slate-50 focus:bg-slate-700 py-2  rounded  px-2 mb-5"
-        onClick={() =>
-          addToCart({ id, title, description, category, price, image })
-        }
-      >
-        Kaufen
-      </button>
-      {/* FIXME! Icon einsetzen anstatt Text einfügen! */}
-      {!isItemInMyList && (
+      <div className="flex flex-row justify-between mt-auto px-2">
         <button
-          className="bg-teal-900 text-white  py-2 px-4 rounded m-5"
-          onClick={handleAddToMyList}
-          disabled={isItemInMyList}
+          className="bg-slate-500 hover:bg-slate-600 text-slate-50 focus:bg-slate-700 rounded  mb-4 px-5 h-10 flex-grow"
+          onClick={() =>
+            addToCart({ id, title, description, category, price, image })
+          }
         >
-          Zur Liste hinzufügen
+          Kaufen
         </button>
-      )}
+        {/* FIXME! Icon einsetzen anstatt Text einfügen! */}
+        {!isItemInMyList && (
+          <button
+            className="bg-teal-900 text-white  rounded ml-4  mb-4 px-5 h-10 flex-grow"
+            onClick={handleAddToMyList}
+            disabled={isItemInMyList}
+          >
+            Zur Liste hinzufügen
+          </button>
+        )}
+      </div>
     </div>
   )
 }

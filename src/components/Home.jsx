@@ -52,18 +52,20 @@ const Home = () => {
         <option value="alphabetischAbs">Alphabetisch: Absteigend</option>
         <option value="alphabetischAuf">Alphabetisch: Aufsteigend</option>
       </select>
-      {data.map((item) => (
-        <Card
-          key={item.id}
-          id={item.id}
-          title={item.title}
-          price={item.price}
-          description={item.description}
-          category={item.category}
-          image={item.image}
-          rating={item.rating}
-        />
-      ))}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {data.map((item) => (
+          <Card
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            price={item.price}
+            description={item.description}
+            category={item.category}
+            image={item.image}
+            rating={item.rating}
+          />
+        ))}
+      </div>
     </div>
   )
 }
