@@ -44,7 +44,7 @@ const Card = ({ id, title, price, description, category, image, rating }) => {
         {/* FIXME! Icon einsetzen anstatt Text einfügen! */}
         {!isItemInMyList && (
           <button
-            className="bg-teal-900 text-white  rounded ml-4  mb-4 px-5 h-10 flex-grow"
+            className="bg-teal-900 text-white  rounded ml-2  mb-4  h-10 flex-grow"
             onClick={handleAddToMyList}
             disabled={isItemInMyList}
           >
